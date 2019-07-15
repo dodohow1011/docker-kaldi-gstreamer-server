@@ -50,7 +50,7 @@ RUN git clone https://github.com/kaldi-asr/kaldi && \
     make && \
     ./install_portaudio.sh && \
     cd /opt/kaldi/src && ./configure --mathlib=ATLAS --shared && \
-	sed -i '/-g # -O0 -DKALDI_PARANOID/c\-O3 -DNDEBUG' kaldi.mk && \
+    sed -i '/-g # -O0 -DKALDI_PARANOID/c\-O3 -DNDEBUG' kaldi.mk && \
     make depend && make && \
     cd /opt/kaldi/src/online && make depend && make && \
     cd /opt/kaldi/src/gst-plugin && make depend && make && \
