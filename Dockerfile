@@ -49,8 +49,8 @@ RUN git clone https://github.com/kaldi-asr/kaldi && \
     cd /opt/kaldi/tools && \
     make && \
     ./install_portaudio.sh && \
-    cd /opt/kaldi/src && ./configure --shared && \
-    sed -i '/-g # -O0 -DKALDI_PARANOID/c\-O3 -DNDEBUG' kaldi.mk && \
+    cd /opt/kaldi/src && ./configure --mathlib=ATLAS --shared
+	sed -i '/-g # -O0 -DKALDI_PARANOID/c\-O3 -DNDEBUG' kaldi.mk && \
     make depend && make && \
     cd /opt/kaldi/src/online && make depend && make && \
     cd /opt/kaldi/src/gst-plugin && make depend && make && \
@@ -61,7 +61,6 @@ RUN git clone https://github.com/kaldi-asr/kaldi && \
     make depend && make && \
     rm -rf /opt/gst-kaldi-nnet2-online/.git/ && \
     find /opt/gst-kaldi-nnet2-online/src/ -type f -not -name '*.so' -delete && \
-    rm -rf /opt/kaldi/.git && \
     rm -rf /opt/kaldi/egs/ /opt/kaldi/windows/ /opt/kaldi/misc/ && \
     find /opt/kaldi/src/ -type f -not -name '*.so' -delete && \
     find /opt/kaldi/tools/ -type f \( -not -name '*.so' -and -not -name '*.so*' \) -delete && \
