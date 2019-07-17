@@ -72,3 +72,6 @@ COPY start.sh stop.sh /opt/
 
 RUN chmod +x /opt/start.sh && \
     chmod +x /opt/stop.sh 
+
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
